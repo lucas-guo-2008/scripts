@@ -17,4 +17,4 @@ def on_press(key):
     return False
 
 with keyboard.Listener(on_press=on_press) as listener:
-  listener.join()
+  listener.start()
