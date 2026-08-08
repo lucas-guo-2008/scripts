@@ -16,5 +16,11 @@ def on_press(key):
     subprocess.run(["open", "-a", "Reminders"])
     return False
 
-with keyboard.Listener(on_press=on_press) as listener:
-  listener.start()
+listener = keyboard.Listener(on_press=on_press)
+listener.start()
+
+try:
+  while listener.is_alive():
+    time.sleep(1)
+except KeyboardInterrupt:
+  listener.stop()
